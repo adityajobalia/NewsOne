@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "705873502662",
+    "firebase_url": "https://newsone-8fe67.firebaseio.com",
+    "project_id": "newsone-8fe67",
+    "storage_bucket": "newsone-8fe67.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705873502662:android:16ac8feec52229b23d52c7",
+        "android_client_info": {
+          "package_name": "com.example.newsone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705873502662-cimb43bi59c3b7qa515vl6v12m9b7blh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.newsone",
+            "certificate_hash": "198e898fa29e7f6feaecbb8afa6a1e8eac88b456"
+          }
+        },
+        {
+          "client_id": "705873502662-0f7sgg45vujjagv5ulpk0nrnrl7k0339.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMuCm55KUaS1UOo5Ql06_0tzIPBn3K86Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705873502662-0f7sgg45vujjagv5ulpk0nrnrl7k0339.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

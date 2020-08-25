@@ -1,0 +1,159 @@
+
+
+service: api
+
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  environment:
+    Users:  "AllUsers"
+    News: "AllNews"
+    Discussions : "NewsDiscussions"
+    TOKEN_SECRET: "osBySLfVjo+m/@%P4ISVLg6%6#Wr5G"
+    
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - s3:GetObject
+      Resource: '*'
+
+plugins:
+  - serverless-webpack
+  - serverless-prune-plugin
+
+
+functions:
+  FetchNews:
+    handler: functions/News/newsFetcher.fetchNews
+    events:
+      - http:
+          path: api/news/all
+          method: get
+  FetchNewsFromDB:
+    handler: functions/News/fetchNewsFromDB.fetchNewsDB
+    events:
+      - http:
+          path: api/news/fetch/all
+          method: post
+  Createuser:
+    handler: functions/Auth/createUser.createNewUser
+    memorySize: 128
+    timeout : 10
+    events:
+      - http:
+          path: api/user/create
+          method: post
+  CheckUser:
+    handler: functions/Auth/checkUser.isUserAlreadyRegistered
+    memorySize: 128
+    timeout : 10
+    events:
+      - http:
+          path: api/user/checkuser/{userid}
+          method: get
+  GetUserDetail:
+    handler: functions/Auth/getUser.getUserDetails
+    memorySize: 128
+    timeout : 10
+    events:
+      - http:
+          path: api/user/userdetail
+          method: get
+  CreateDiscussion:
+    handler: functions/discussion/createDiscussion.createDiscussionForNews
+    memorySize: 128
+    timeout : 10
+    events:
+      - http:
+          path: api/discussion/create
+          method: post
+  GeteDiscussion:
+    handler: functions/discussion/getDiscussionInDetails.getDiscussion
+    memorySize: 128
+    timeout : 10
+    events:
+      - http:
+          path: api/discussion/get/{discussionid}
+          method: get
+  CreateComment:
+    handler: functions/discussion/addCommentTodiscussion.addComment
+    memorySize: 128
+    timeout : 10
+    events:
+      - http:
+          path: api/discussion/comment/add
+          method: post
+  GetSpecificNews:
+    handler: functions/News/fetchNewsFromDB.getNewsById
+    memorySize: 128
+    timeout : 10
+    events:
+      - http:
+          path: api/news/fetch/{newsid}
+          method: get
+  GetIOSQuiz:
+    handler: handler.hello
+    memorySize: 128
+    timeout : 10
+    events:
+      - http:
+          path: api/get/quiz
+          method: get
+
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js 
+    includeModules: true
+
+resources:
+  Resources:
+    Users:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: userid
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: userid
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:provider.environment.Users}
+    News:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: newsid
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: newsid
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:provider.environment.News}
+    NewsDiscussion:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: discussionid
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: discussionid
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:provider.environment.Discussions}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="175" height="143.773" viewBox="0 0 175 143.773">
+  <defs>
+    <filter id="NEWS" x="0" y="0" width="175" height="76" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="ONE" x="1" y="46.773" width="173" height="97" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_122" data-name="Group 122" transform="translate(1423 722.349)">
+    <g transform="matrix(1, 0, 0, 1, -1423, -722.35)" filter="url(#NEWS)">
+      <text id="NEWS-2" data-name="NEWS" transform="translate(10 52)" fill="#957aff" font-size="55" font-family="MongolianBaiti, Mongolian Baiti"><tspan x="0" y="0">NEWS</tspan></text>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -1423, -722.35)" filter="url(#ONE)">
+      <text id="ONE-2" data-name="ONE" transform="translate(10 115.77)" fill="#957aff" font-size="75" font-family="MongolianBaiti, Mongolian Baiti"><tspan x="0" y="0">ONE</tspan></text>
+    </g>
+  </g>
+</svg>

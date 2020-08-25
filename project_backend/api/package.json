@@ -1,0 +1,26 @@
+{
+    "name": "NewsOneApi",
+    "description": "Backend API for NewsOne",
+    "scripts": {},
+    "engines": {
+        "node": "8"
+    },
+    "dependencies": {
+        "newsapi": "^2.4.0",
+        "source-map-support": "^0.5.18",
+        "aws-sdk": "^2.660.0",
+        "jsonwebtoken": "^8.5.1",
+        "request-promise": "^4.2.5",
+        "uuid": "^7.0.3"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.5",
+        "babel-loader": "^8.1.0",
+        "babel-plugin-source-map-support": "^2.1.1",
+        "serverless-prune-plugin": "^1.4.3",
+        "serverless-webpack": "^5.3.1",
+        "webpack": "^4.43.0",
+        "webpack-node-externals": "^1.7.2"
+    }
+}
