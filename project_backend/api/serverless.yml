@@ -10,7 +10,7 @@ provider:
     Users:  "AllUsers"
     News: "AllNews"
     Discussions : "NewsDiscussions"
-    TOKEN_SECRET: "osBySLfVjo+m/@%P4ISVLg6%6#Wr5G"
+    TOKEN_SECRET: ""
     
   iamRoleStatements:
     - Effect: Allow
